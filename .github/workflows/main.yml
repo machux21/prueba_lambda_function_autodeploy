@@ -23,12 +23,20 @@ jobs:
       - name: Zip code
         run: |
           zip -r codigo.zip . -x '*.git*'  # Comprime el código excluyendo archivos de Git
-
+      - name: Install urllib3
+        run: |
+          pip install urllib3
+        
       - name: Install AWS CLI
         run: |
           sudo apt-get install python3-pip
           pip3 install --upgrade pip
           pip3 install awscli
+      - name: Update AWS CLI
+        run: |
+            sudo apt-get update
+            sudo apt-get install --only-upgrade awscli -y
+        
 
       - name: Deploy to Lambda
         env:
