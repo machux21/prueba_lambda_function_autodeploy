@@ -22,7 +22,7 @@ jobs:
 
       - name: Zip code
         run: |
-          zip -r codigo.zip . -x '*.git*'  # Comprime el código excluyendo archivos de Git
+          zip -r codigo.zip . -x '*.git*' README.md
       
       - name: Install AWS CLI
         run: |
